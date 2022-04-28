@@ -27,12 +27,14 @@ body {
 
 
         /* MAIN */
+
 .card {
     width: 90vw;
     background-color: white;
     border-radius: 1rem;
     overflow: hidden;
     margin: 3rem;
+    position: relative;
 }
 
 .picture__container {
@@ -50,6 +52,7 @@ body {
 
 main {
     padding: 1rem;
+    padding-bottom: 0;
     margin-top: 1rem;
 }
 
@@ -70,6 +73,7 @@ main {
 
 .credits {
     height: 50px;
+    margin-bottom: 1rem;
     display: grid;
     grid-template-columns: min-content 3fr min-content;
 }
@@ -124,7 +128,6 @@ main {
 .share {
     display: none;
     z-index: -1;
-    margin-top: -2rem;
     background-color: var(--Very-Dark-Grayish-Blue);
     padding: 0 1rem;
 }
@@ -154,28 +157,75 @@ main {
 }
 
 .share.active {
-    height: calc(50px + 2rem);
+    height: calc(50px + 1.5rem);
+    width: calc(100% + 2rem);
+    margin-top: -0.5rem;
+    margin-left: -1rem;
+    padding-bottom: 0.5rem;
     background-color:var(--Very-Dark-Grayish-Blue);
-    width: 100%;
-    z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: scale(1);
 }
 
 
         /* RESPONSIVE DESIGN */
         
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 900px) {
     .card {
         display: grid;
-        grid-template-columns: 30% 1fr;
+        grid-template-columns: 40% 1fr;
         column-gap: 1rem;
-        width: 50vw;
+        width: 700px;
+        overflow: visible;
     }
     main {
         margin-top: 0;
+    }
+
+    .picture__container {
+        height: 100%;
+        width: 100%;
+    }
+    .picture__img {
+        width: 100%;
+        object-fit: fill;
+    }
+    .credits.active {
+        display: flex;
+    }
+    .share.active {
+        /* width: fit-content; */
+        width: 250px;
+        height: 50px;
+        border-radius: 0.5rem;
+        background-color:var(--Very-Dark-Grayish-Blue);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0 1.5rem;
+        z-index: inherit;
+        position: absolute;
+        right: -85px;
+        bottom: 90px;
+    }
+    .share:after {
+        content: '';
+        position: absolute;
+        bottom: -29px;
+        z-index: 100;
+        left: 50%;
+        transform: translate(-50%, 0px);
+        border: 15px solid;
+        border-color: var(--Very-Dark-Grayish-Blue) transparent transparent;
+    }
+    .share__btn--container{
+        position: absolute;
+        right: 1rem;
+    }
+    .share__btn--container--hide {
+        display: none;
     }
 }
 
