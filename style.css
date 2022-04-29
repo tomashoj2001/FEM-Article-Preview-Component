@@ -75,7 +75,7 @@ main {
     height: 50px;
     margin-bottom: 1rem;
     display: grid;
-    grid-template-columns: min-content 3fr min-content;
+    grid-template-columns: min-content 1fr min-content;
 }
 
 .avatar__container {
@@ -109,6 +109,15 @@ main {
 
         /* SHARE*/
 
+.share {
+    z-index: -1;
+    background-color: var(--Very-Dark-Grayish-Blue);
+    padding: 0 1rem;
+    transform: translateY(105%);
+    transition: all 0.5s ;
+    height: 0px;
+}
+
 .share__btn--container {
     border-radius: 50%;
     background-color: var(--Light-Grayish-Blue);
@@ -123,13 +132,6 @@ main {
 .share__btn {
     margin: auto;
     width: 25px;
-}
-
-.share {
-    display: none;
-    z-index: -1;
-    background-color: var(--Very-Dark-Grayish-Blue);
-    padding: 0 1rem;
 }
 
 .share__social {
@@ -147,6 +149,7 @@ main {
 
 .share__social img {
     width: 25px;
+    cursor: pointer;
 }
 
 
@@ -157,6 +160,7 @@ main {
 }
 
 .share.active {
+    transform: translateY(0);
     height: calc(50px + 1.5rem);
     width: calc(100% + 2rem);
     margin-top: -0.5rem;
@@ -182,10 +186,9 @@ main {
     main {
         margin-top: 0;
     }
-
     .picture__container {
         height: 100%;
-        width: 100%;        
+        width: 100%;
         border-radius: 1rem 0 0 1rem;
     }
     .picture__img {
@@ -195,8 +198,16 @@ main {
     .credits.active {
         display: flex;
     }
+    .share{
+        height: inherit;
+        position: absolute;
+        z-index: 0;
+        right: -85px;
+        bottom: 90px;
+        transform: scale(0) translateY(100%);
+        transition: all 0.5s ease;
+    }
     .share.active {
-        /* width: fit-content; */
         width: 250px;
         height: 50px;
         border-radius: 0.5rem;
@@ -207,9 +218,7 @@ main {
         margin: 0;
         padding: 0 1.5rem;
         z-index: inherit;
-        position: absolute;
-        right: -85px;
-        bottom: 90px;
+        transform: scale(1) translateY(0);
     }
     .share:after {
         content: '';
